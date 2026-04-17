@@ -1,4 +1,6 @@
 //Adding Lucid Icons and React Motion
+import { motion } from "motion/react";
+import { RocketIcon } from 'lucide-react';
 
 import './App.css';
 import React, { useEffect, useState } from 'react'
@@ -57,7 +59,7 @@ function App() {
 
 
   return (
-    <div className="min-h-screen w-full text-slate-200 relative selection:bg-violet-500/30">
+    <div className="min-h-screen w-full bg-violet-950 text-slate-200 relative selection:bg-violet-500/30">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 glass-panel border-b-0 border-slate-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -72,7 +74,7 @@ function App() {
                               group-hover:glow-border transition-all duration-300"
                               >
                 <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
-
+                  <RocketIcon className="w-5 h-5 text-violet-400 group-hover:text-fuchsia-400 transition-colors" />
                 </div>
               </div>
               <h1 className="text-xl font-bold bg-clip-text 
