@@ -1,5 +1,9 @@
-export function Contacts() {
-
-return <h1>Contact Page</h1>;
-
+function Contacts() {
+  return (
+    <div>
+      <h2>Contact Page</h2>
+    </div>
+  );
 }
+
+export default Contacts;
