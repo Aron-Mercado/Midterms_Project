@@ -9,11 +9,11 @@ import Contacts from './Pages/Contacts'
 
 //Tabs Configuration (To be used later)
 const tabs = [
-  { id: 'home', label: 'Mission Control' },
-  { id: 'projects', label: 'Missions' },
-  { id: 'skills', label: 'Systems' },
+  { id: 'home', label: 'Home' },
+  { id: 'projects', label: 'Projects' },
+  { id: 'skills', label: 'Skills' },
   { id: 'fun', label: 'Deep Space' },
-  { id: 'contact', label: 'Comms' },
+  { id: 'contact', label: 'Contact Info' },
 ]
 
 // Main Component
@@ -51,11 +51,45 @@ function App() {
 
 
   return (
+    <div>
+      {/* Navigation */}
+      <nav>
+        <div>
+          <div>
+
+            {/* Logo */}
+            <div onClick={() => handleTabChange('home')}>
+              <div />
+              <h1>Explorer</h1>
+            </div>
+
+            {/* Desktop Navigation */}
+            <div>
+              {tabs.map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => handleTabChange(tab.id)}
+                >
+                  <span>{tab.label}</span>
+
+                  {activeTab === tab.id && (
+                    <div />
+                  )}
+                </button>
+              ))}
+            </div>
+
+          </div>
+        </div>
+      </nav>
+
       <main>
         <div key={activeTab}>
           {renderActiveTab()}
         </div>
       </main>
+
+      </div>
   );
 }
 export default App
