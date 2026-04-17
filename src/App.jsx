@@ -1,3 +1,5 @@
+//Adding Lucid Icons and React Motion
+
 import './App.css';
 import React, { useEffect, useState } from 'react'
 import {Routes, Route, Link} from 'react-router-dom';
@@ -62,15 +64,21 @@ function App() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div
-              className="flex-shrink-0 flex items-center gap-2 group cursor-pointer"
+              className="shrink-0 flex items-center gap-2 group cursor-pointer"
               onClick={() => handleTabChange('home')}
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center p-[2px] group-hover:glow-border transition-all duration-300">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-violet-500 to-fuchsia-500 
+                              flex items-center justify-center p-0.5 
+                              group-hover:glow-border transition-all duration-300"
+                              >
                 <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
 
                 </div>
               </div>
-              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-400 tracking-wider uppercase">
+              <h1 className="text-xl font-bold bg-clip-text 
+                             text-transparent bg-linear-to-br from-violet-400 to-fuchsia-400 
+                             tracking-wider uppercase"
+                             >
                 Explorer
               </h1>
             </div>
@@ -84,7 +92,9 @@ function App() {
                   <button
                     key={tab.id}
                     onClick={() => handleTabChange(tab.id)}
-                    className={`relative px-4 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-300 ${isActive ? 'text-white' : 'text-slate-400 hover:text-violet-300 hover:bg-white/5'}`}
+                    className={`relative px-4 py-2.5 rounded-xl flex items-center space-x-2 
+                                transition-all duration-300 
+                                ${isActive ? 'text-white' : 'text-slate-400 hover:text-violet-300 hover:bg-white/5'}`}
                   >
 
                     <span className="font-medium tracking-wide text-sm uppercase">
