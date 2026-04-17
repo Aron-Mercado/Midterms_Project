@@ -25,7 +25,11 @@ function App() {
     const [activeTab, setActiveTab] = useState('home')
 
     //Updates the currently active tab
-    //Closes the mobile menu after a tab is selected
+    /*
+      Re-runs the App() function
+      Re-evaluates JSX
+      Updates only the parts that depend on activeTab
+    */
     const handleTabChange = tabId => {
     setActiveTab(tabId)
   }
@@ -51,36 +55,48 @@ function App() {
 
 
   return (
-    <div>
+    <div className="min-h-screen w-full text-slate-200 relative selection:bg-violet-500/30">
       {/* Navigation */}
-      <nav>
-        <div>
-          <div>
-
+      <nav className="fixed top-0 left-0 right-0 z-50 glass-panel border-b-0 border-slate-800/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <div onClick={() => handleTabChange('home')}>
-              <div />
-              <h1>Explorer</h1>
+            <div
+              className="flex-shrink-0 flex items-center gap-2 group cursor-pointer"
+              onClick={() => handleTabChange('home')}
+            >
+              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center p-[2px] group-hover:glow-border transition-all duration-300">
+                <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
+
+                </div>
+              </div>
+              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-400 tracking-wider uppercase">
+                Explorer
+              </h1>
             </div>
 
             {/* Desktop Navigation */}
-            <div>
-              {tabs.map(tab => (
-                <button
-                  key={tab.id}
-                  onClick={() => handleTabChange(tab.id)}
-                >
-                  <span>{tab.label}</span>
+            <div className="hidden md:flex items-center space-x-2">
+              {tabs.map((tab) => {
+                //const Icon = tab.icon
+                const isActive = activeTab === tab.id
+                return (
+                  <button
+                    key={tab.id}
+                    onClick={() => handleTabChange(tab.id)}
+                    className={`relative px-4 py-2.5 rounded-xl flex items-center space-x-2 transition-all duration-300 ${isActive ? 'text-white' : 'text-slate-400 hover:text-violet-300 hover:bg-white/5'}`}
+                  >
 
-                  {activeTab === tab.id && (
-                    <div />
-                  )}
-                </button>
-              ))}
+                    <span className="font-medium tracking-wide text-sm uppercase">
+                      {tab.label}
+                    </span>
+                    
+                  </button>
+                )
+              })}
             </div>
-
           </div>
-        </div>
+          </div>
       </nav>
 
       <main>
@@ -92,4 +108,5 @@ function App() {
       </div>
   );
 }
-export default App
+
+export default App;
