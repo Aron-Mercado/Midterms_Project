@@ -1,1 +1,53 @@
+/* @import url() FONT IMPORTS MUST ALWAYS BE AT THE VERY TOP OF THIS FILE, ABOVE THE TAILWIND IMPORTS — DO NOT DELETE THIS COMMENT */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+
+/* CRITICAL: THE FOLLOWING TAILWIND IMPORTS MUST NEVER BE DELETED OR REORDERED — DO NOT DELETE THIS COMMENT */
 @import "tailwindcss";
+
+/* END TAILWIND IMPORTS — ALL OTHER CSS MUST GO BELOW THIS LINE */
+
+:root {
+  --accent-primary: #8b5cf6; /* violet-500 */
+  --accent-secondary: #d946ef; /* fuchsia-500 */
+  --accent-tertiary: #06b6d4; /* cyan-500 */
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #020617; /* slate-950 */
+  color: #e2e8f0;
+  overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+}
+/* Space Theme Animations & Effects */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 1; }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+.star {
+  position: absolute;
+  background-color: white;
+  border-radius: 50%;
+  animation: twinkle var(--duration) infinite ease-in-out;
+  opacity: 0.2;
+}
+.bg-space-gradient {
+  background: radial-gradient(circle at center, #1e1b4b 0%, #020617 100%);
+}
+.glass-panel {
+  background: rgba(15, 23, 42, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+.glow-text {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.5), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+.glow-border {
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.3);
+}
