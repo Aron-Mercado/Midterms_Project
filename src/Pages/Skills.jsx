@@ -4,70 +4,64 @@ import {
     CpuIcon, 
     DatabaseIcon,
     RocketIcon, 
-    MonitorCog,
 } from 'lucide-react'
 const skillsData = [
   {
-    category: 'Frontend Systems',
+    category: 'Coding Languages',
     icon: CpuIcon,
     color: 'from-cyan-400 to-blue-600',
     skills: [
       {
-        name: 'React / Next.js',
+        name: 'HTML',
         level: 95,
-        iconLower: MonitorCog,
+        iconSrc: './icons/html.png',
       },
       {
-        name: 'JavaScript (ES6+)',
+        name: 'CSS',
         level: 92,
-        iconLower: MonitorCog,
+        iconSrc: './icons/css.png',
       },
       {
-        name: 'Tailwind CSS',
+        name: 'Java-Script',
         level: 90,
-        iconLower: MonitorCog,
+        iconSrc: './icons/java-script.png',
       },
       {
-        name: 'Three.js / WebGL',
+        name: 'Python',
         level: 75,
-        iconLower: MonitorCog,
+        iconSrc: './icons/python.png',
       },
       {
-        name: 'Framer Motion',
+        name: 'Dart',
         level: 85,
-        iconLower: MonitorCog,
+        iconSrc: './icons/dart.png',
       },
     ],
   },
   {
-    category: 'Backend Core',
+    category: 'Frameworks',
     icon: DatabaseIcon,
     color: 'from-fuchsia-400 to-purple-600',
     skills: [
       {
-        name: 'Node.js / Express',
+        name: 'React',
         level: 88,
-        iconLower: MonitorCog,
+        iconSrc: './icons/react.png',
       },
       {
-        name: 'Python / FastAPI',
+        name: 'Tailwind',
         level: 82,
-        iconLower: MonitorCog,
+        iconSrc: './icons/tailwind.png',
       },
       {
-        name: 'PostgreSQL',
+        name: 'Bootstrap',
         level: 85,
-        iconLower: MonitorCog,
+        iconSrc: './icons/bootstrap.png',
       },
       {
-        name: 'MongoDB / NoSQL',
+        name: 'Flutter',
         level: 80,
-        iconLower: MonitorCog,
-      },
-      {
-        name: 'GraphQL / REST',
-        level: 90,
-        iconLower: MonitorCog,
+        iconSrc: './icons/flutter.png',
       },
     ],
   },
@@ -94,11 +88,10 @@ return (
         >
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-32 bg-cyan-500/10 rounded-full blur-[100px] -z-10" />
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-wider">
-            System Capabilities
+            Skill Sets
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light">
-            Current operational status of technical proficiencies and
-            engineering subsystems.
+            My professional capabilities include:
           </p>
         </motion.div>
 
@@ -142,7 +135,7 @@ return (
                 {/* Skills List */}
                 <div className="space-y-6">
                   {category.skills.map((skill, skillIndex) => {
-                    const LowerIcon = skill.iconLower
+                    /*const LowerIcon = skill.iconSrc*/
                     return (
                     <motion.div
                       key={skill.name}
@@ -160,7 +153,11 @@ return (
                     >
                       {/* Skill Name and Level */}
                       <div className="flex justify-between items-end mb-2">
-                        <LowerIcon className="w-5 h-5 text-violet-400 group-hover:text-fuchsia-400 transition-colors"/>
+                        <img
+                        src={skill.iconSrc}
+                        alt={skill.name}
+                        className="w-5 h-5 object-contain"
+                        />
                         <span className="text-slate-300 font-medium tracking-wide">
                           {skill.name}
                         </span>
