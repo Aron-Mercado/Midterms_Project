@@ -25,17 +25,17 @@ import Contacts from './Pages/Contacts'
 const tabs = [
   {
     id: 'home',
-    label: 'Mission Control',
+    label: 'Home',
     icon: RocketIcon,
   },
   {
     id: 'projects',
-    label: 'Missions',
+    label: 'Projects',
     icon: GlobeIcon,
   },
   {
     id: 'skills',
-    label: 'Systems',
+    label: 'Skills',
     icon: CpuIcon,
   },
   {
@@ -45,7 +45,7 @@ const tabs = [
   },
   {
     id: 'contact',
-    label: 'Comms',
+    label: 'Contact Info',
     icon: SatelliteIcon,
   },
 ]

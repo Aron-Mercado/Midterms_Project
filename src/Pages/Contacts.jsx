@@ -82,7 +82,6 @@ function Contacts() {
           >
 
             {/* Status Card */}
-            <div className="glass-panel rounded-3xl p-8 border-cyan-500/30 relative overflow-hidden">
               <div className="absolute top-0 right-0 w-32 h-32 bg-cyan-500/10 rounded-full blur-[50px]" />
 
               <div className="flex items-center gap-3 mb-6">
@@ -112,7 +111,6 @@ function Contacts() {
                   <p className="font-medium">alex@example.com</p>
                 </div>
               </div>
-            </div>
           
           </motion.div>
 

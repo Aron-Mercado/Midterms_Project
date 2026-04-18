@@ -10,26 +10,35 @@ import {
 const projects = [
   {
     id: 1,
-    title: 'Test 1',
+    title: 'First HTML Page',
     description:
-      '---',
-    image: 'https://picsum.photos/800/600?random=10',
+      'My First foray into HTML and CSS coding and functionalities',
+    image: './projects/first_html_page.png',
     category: 'HTML + CSS',
 
   },
   {
     id: 2,
-    title: 'Test 2',
+    title: 'Online Store Page',
     description:
-      '---',
-    image: 'https://picsum.photos/800/600?random=10',
+      'A webpage simulating an Online Store page with custom designs using Bootstrap as well as a sorting and filter function using Java-Script',
+    image: './projects/bootstrap-javascript_online_store.png',
     category: 'Bootstrap',
+
+  },
+  {
+    id: 3,
+    title: 'Profile Page with React',
+    description:
+      'A profile page made with Vite + React + Tailwind as my first experience with these frameworks',
+    image: './projects/react_profile_page.png',
+    category: 'React',
 
   },
  
 ]
 
-const categories = ['HTML + CSS', 'Bootstrap', 'React']
+const categories = ['All Systems', 'HTML + CSS', 'Bootstrap', 'React']
 
 function Projects() {
  const [selectedCategory, setSelectedCategory] = useState('All Systems')
@@ -67,11 +76,10 @@ return (
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-violet-600/20 rounded-full blur-[80px] -z-10" />
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 uppercase tracking-wider flex items-center justify-center gap-4">
             <RocketIcon className="w-10 h-10 text-fuchsia-500" />
-            Mission Logs
+            Project Logs
           </h2>
           <p className="text-lg text-slate-400 max-w-2xl mx-auto font-light">
-            A catalog of successful deployments across various sectors of the
-            digital universe.
+            A catalog of my various works overtime: 
           </p>
         </motion.div>
 
@@ -124,25 +132,17 @@ return (
                   duration: 0.4,
                   delay: index * 0.05,
                 }}
-                className="group relative rounded-2xl overflow-hidden glass-panel border-slate-700 hover:border-fuchsia-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.2)]"
+                className="group relative rounded-2xl overflow-hidden glass-panel flex flex-col border-slate-700 hover:border-fuchsia-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.2)]"
               >
-                {/* Featured Badge */}
-                {project.featured && (
-                  <div className="absolute top-4 right-4 z-20 bg-slate-900/80 backdrop-blur-md border border-yellow-500/30 text-yellow-400 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 uppercase tracking-wider">
-                    <StarIcon className="w-3 h-3 fill-yellow-400" />
-                    Prime
-                  </div>
-                )}
 
                 {/* Project Image */}
-                <div className="relative overflow-hidden aspect-4/3">
-                  <div className="absolute inset-0 bg-violet-900/20 group-hover:bg-transparent transition-colors duration-500 z-10" />
+                <div className="relative overflow-hidden aspect-[4/3]">
+                  <div className="absolute inset-0 z-10" />
                   <img
                     src={project.image}
                     alt={project.title}
                     className="w-full h-full object-cover filter grayscale-30 group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-slate-950 via-slate-900/60 to-transparent z-10" />
 
                   {/* Category overlay */}
                   <div className="absolute bottom-4 left-4 z-20">
@@ -153,14 +153,13 @@ return (
                 </div>
 
                 {/* Project Content */}
-                <div className="p-6 relative z-20 bg-slate-950/50">
+                <div className="p-6 relative z-20 bg-slate-950/50 grow">
                   <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-fuchsia-400 transition-colors font-sans">
                     {project.title}
                   </h3>
                   <p className="text-slate-400 text-sm leading-relaxed mb-6 line-clamp-3">
                     {project.description}
                   </p>
-                  
                 </div>
               </motion.div>
             ))}

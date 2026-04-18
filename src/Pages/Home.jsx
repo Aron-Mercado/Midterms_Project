@@ -55,7 +55,7 @@ return (
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-violet-500/30 text-violet-300 text-sm font-medium tracking-wide uppercase"
             >
               <span className="w-2 h-2 rounded-full bg-fuchsia-500 animate-pulse" />
-              Commander Online
+              Operator Online
             </motion.div>
 
             <div className="space-y-4">
@@ -73,9 +73,9 @@ return (
                 }}
                 className="text-5xl md:text-7xl font-bold text-white tracking-tight"
               >
-                Alex{' '}
+                Aron{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-fuchsia-400">
-                  Morgan
+                  Mercado
                 </span>
               </motion.h1>
               <motion.h2
@@ -93,7 +93,7 @@ return (
                 className="text-2xl md:text-3xl font-light text-slate-300 flex items-center gap-3"
               >
                 <TerminalIcon className="w-8 h-8 text-cyan-400" />
-                Intergalactic Developer
+                Associate in Computer Technology Student
               </motion.h2>
             </div>
 
@@ -109,9 +109,8 @@ return (
               }}
               className="text-lg text-slate-400 leading-relaxed max-w-xl"
             >
-              Navigating the cosmos of code. I engineer robust digital
-              ecosystems and craft stellar user experiences that push the
-              boundaries of the known web.
+              A student prepared to explore a wide range of knowledge in coding, with the goal of 
+              becoming an industry-ready and technologically proficient professional.
             </motion.p>
 
             <motion.div
