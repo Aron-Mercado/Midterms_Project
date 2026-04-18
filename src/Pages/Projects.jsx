@@ -15,6 +15,7 @@ const projects = [
       '---',
     image: 'https://picsum.photos/800/600?random=10',
     category: 'HTML + CSS',
+
   },
   {
     id: 2,
@@ -23,6 +24,7 @@ const projects = [
       '---',
     image: 'https://picsum.photos/800/600?random=10',
     category: 'Bootstrap',
+
   },
  
 ]
@@ -51,7 +53,15 @@ return (
 <div className="w-full min-h-screen px-4 py-12 md:py-20">
       <div className="max-w-7xl mx-auto">
         {/* Header */}
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
           className="text-center mb-16 relative"
         >
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-violet-600/20 rounded-full blur-[80px] -z-10" />
@@ -63,10 +73,21 @@ return (
             A catalog of successful deployments across various sectors of the
             digital universe.
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Filters */}
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.1,
+          }}
           className="flex flex-wrap justify-center gap-4 mb-16"
         >
           {categories.map((category) => (
@@ -78,14 +99,40 @@ return (
               {category}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Projects Grid */}
-        <div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="popLayout">
             {filteredProjects.map((project, index) => (
-              <div
+              <motion.div
+                key={project.id}
+                layout
+                initial={{
+                  opacity: 0,
+                  scale: 0.8,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  scale: 0.8,
+                }}
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                }}
                 className="group relative rounded-2xl overflow-hidden glass-panel border-slate-700 hover:border-fuchsia-500/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_30px_rgba(139,92,246,0.2)]"
               >
+                {/* Featured Badge */}
+                {project.featured && (
+                  <div className="absolute top-4 right-4 z-20 bg-slate-900/80 backdrop-blur-md border border-yellow-500/30 text-yellow-400 text-xs font-bold px-3 py-1.5 rounded-full flex items-center gap-1 uppercase tracking-wider">
+                    <StarIcon className="w-3 h-3 fill-yellow-400" />
+                    Prime
+                  </div>
+                )}
 
                 {/* Project Image */}
                 <div className="relative overflow-hidden aspect-4/3">
@@ -115,9 +162,10 @@ return (
                   </p>
                   
                 </div>
-              </div>
+              </motion.div>
             ))}
-        </div>
+          </AnimatePresence>
+        </motion.div>
       </div>
     </div>
 
