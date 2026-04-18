@@ -24,9 +24,21 @@ return (
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left Column - Text Content */}
-          <div
+          <motion.div
+            initial={{
+              opacity: 0,
+              x: -50,
+            }}
+            animate={{
+              opacity: 1,
+              x: 0,
+            }}
+            transition={{
+              duration: 0.8,
+              ease: 'easeOut',
+            }}
             className="space-y-8 relative z-10"
-          > 
+          >
             {/* Decorative badge */}
             <div
               className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-violet-500/30 text-violet-300 text-sm font-medium tracking-wide uppercase"
@@ -86,7 +98,7 @@ return (
                 <MailIcon className="w-6 h-6" />
               </a>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column - Stylized Image/Graphic */}
           <div
