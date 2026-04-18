@@ -52,19 +52,31 @@ const tabs = [
 
 
 // ***********************************************
-// Star field component for the background (got a lot of various help for this)
+// Star field component for the background
+// StarField creates a procedural, animated space background.
 const StarField = () => {
-  const [stars, setStars] = useState([])
+  // state is needed for React to re-render after stars are generated
+  // stars → an array of star objects
+  const [stars, setStars] = useState([]) //The empty dependency array runs this effect a single time and never again
   useEffect(() => {
     // Generate random stars only on client side
     const newStars = Array.from({
+      // Creates an array with 150 slots
       length: 150,
     }).map((_, i) => ({
       id: i,
+      // Each value comes from a random number between 0 and 1 generated at runtime, 
+      // which is then scaled to a specific range so every star has a unique size, position, speed, and delay.
+
+      
+      //  Random position in percentages
       x: Math.random() * 100,
       y: Math.random() * 100,
+      // Random size between 1px and 3px
       size: Math.random() * 2 + 1,
+      // Random animation length
       duration: Math.random() * 3 + 2,
+      // Random animation start delay
       delay: Math.random() * 5,
     }))
     setStars(newStars)
@@ -80,7 +92,7 @@ const StarField = () => {
       {stars.map((star) => (
         <div
           key={star.id}
-          className="star"
+          className="star" // CSS animation lives here
           style={{
             left: `${star.x}%`,
             top: `${star.y}%`,
@@ -196,7 +208,7 @@ function App() {
       </nav>
 
       {/* Main Content */}
-      <main className="pt-20 min-h-screen relative z-10">
+      <main className="pt-20 min-h-[110vh] relative z-10">
         <AnimatePresence mode="wait">
           <motion.div
             key={activeTab}
