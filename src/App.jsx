@@ -1,3 +1,5 @@
+//App.jsx serves as the main hub for the webpage, displaying only the selected content
+
 //Adding Lucid Icons and React Motion
 import { motion } from "motion/react";
 import { RocketIcon } from 'lucide-react';
