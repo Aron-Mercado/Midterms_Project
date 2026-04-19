@@ -9,14 +9,6 @@ import {
   OrbitIcon,
 } from 'lucide-react'
 
-/*
-    TO DO LIST:
-    1. DECONSTRUCT
-        1.a BASE ELEMENTS
-        2.a DESIGN
-        3.a TEST ANMATIONS
-*/
-
 function Home() {
 
 return (
@@ -112,7 +104,8 @@ return (
               A student prepared to explore a wide range of knowledge in coding, with the goal of 
               becoming an industry-ready and technologically proficient professional.
             </motion.p>
-
+            
+            {/*
             <motion.div
               initial={{
                 opacity: 0,
@@ -135,6 +128,7 @@ return (
                 Access Logs (Resume)
               </button>
             </motion.div>
+              */}
 
             <motion.div
               initial={{
@@ -152,13 +146,13 @@ return (
                 Comms Channels:
               </span>
               <a
-                href="#"
+                href="https://github.com/Aron-Mercado"
                 className="text-slate-400 hover:text-fuchsia-400 transition-colors hover:scale-110 transform duration-200"
               >
                 <Computer className="w-6 h-6" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/in/aron-mercado-619795384/"
                 className="text-slate-400 hover:text-cyan-400 transition-colors hover:scale-110 transform duration-200"
               >
                 <Book className="w-6 h-6" />
@@ -231,11 +225,11 @@ return (
 
               {/* Center Avatar/Planet */}
               <div className="absolute inset-24 rounded-full overflow-hidden border-4 border-slate-900 shadow-[0_0_50px_rgba(139,92,246,0.3)]">
-                <div className="absolute inset-0 bg-gradient-to-tr from-violet-900 to-fuchsia-900 opacity-50 mix-blend-overlay z-10" />
+                <div className="absolute inset-0 z-10" />
                 <img
-                  src="https://picsum.photos/800/800?random=1"
+                  src="./home/profile_pic.jpg"
                   alt="Commander"
-                  className="w-full h-full object-cover filter contrast-125 saturate-50"
+                  className="w-full h-full object-cover filter"
                 />
               </div>
 
