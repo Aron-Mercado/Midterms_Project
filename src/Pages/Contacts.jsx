@@ -16,14 +16,14 @@ function Contacts() {
     {
       icon: Computer,
       label: 'GitHub',
-      url: '#',
+      url: 'https://github.com/Aron-Mercado',
       color: 'text-slate-300 hover:text-white',
       bg: 'hover:bg-slate-800',
     },
     {
       icon: Book,
       label: 'LinkedIn',
-      url: '#',
+      url: 'https://www.linkedin.com/in/aron-mercado-619795384/',
       color: 'text-blue-400 hover:text-blue-300',
       bg: 'hover:bg-blue-900/30',
     },
@@ -102,16 +102,15 @@ function Contacts() {
                 <div className="flex items-start gap-4 text-slate-300">
                   <MapPinIcon className="w-5 h-5 text-cyan-400 mt-1 shrink-0" />
                   <div>
-                    <p className="font-medium text-white">Sector 7G (Earth)</p>
-                    <p className="text-sm text-slate-400">San Francisco, CA</p>
+                    <p className="font-medium text-white">Better Living, Parañaque City</p>
+                    <p className="text-sm text-slate-400">Metro Manila, Philippines</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-4 text-slate-300">
                   <MailIcon className="w-5 h-5 text-cyan-400 shrink-0" />
-                  <p className="font-medium">alex@example.com</p>
+                  <p className="font-medium">agmercado@student.apc.edu.ph</p>
                 </div>
               </div>
-          
           </motion.div>
 
           {/* Contact Info & Social Links - Spans 2 cols */}
@@ -133,7 +132,7 @@ function Contacts() {
             {/* Social Network */}
             <div className="glass-panel rounded-3xl p-8 border-slate-700/50">
               <h3 className="text-sm font-mono text-slate-400 mb-6 uppercase tracking-widest">
-                Network Nodes
+                Social Links
               </h3>
               <div className="grid grid-cols-2 gap-4">
                 {socialLinks.map((social, index) => {
@@ -141,7 +140,9 @@ function Contacts() {
                   return (
                     <motion.a
                       key={social.label}
-                      href={social.url}
+                      href={social.url}             
+                      target="_blank"
+                      rel="noopener noreferrer"
                       initial={{
                         opacity: 0,
                         y: 10,

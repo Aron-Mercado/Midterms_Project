@@ -13,27 +13,27 @@ const skillsData = [
     skills: [
       {
         name: 'HTML',
-        level: 95,
+        level: 90,
         iconSrc: './icons/html.png',
       },
       {
         name: 'CSS',
-        level: 92,
+        level: 62,
         iconSrc: './icons/css.png',
       },
       {
         name: 'Java-Script',
-        level: 90,
+        level: 64,
         iconSrc: './icons/java-script.png',
       },
       {
         name: 'Python',
-        level: 75,
+        level: 78,
         iconSrc: './icons/python.png',
       },
       {
         name: 'Dart',
-        level: 85,
+        level: 49,
         iconSrc: './icons/dart.png',
       },
     ],
@@ -45,22 +45,22 @@ const skillsData = [
     skills: [
       {
         name: 'React',
-        level: 88,
+        level: 55,
         iconSrc: './icons/react.png',
       },
       {
         name: 'Tailwind',
-        level: 82,
+        level: 71,
         iconSrc: './icons/tailwind.png',
       },
       {
         name: 'Bootstrap',
-        level: 85,
+        level: 56,
         iconSrc: './icons/bootstrap.png',
       },
       {
         name: 'Flutter',
-        level: 80,
+        level: 54,
         iconSrc: './icons/flutter.png',
       },
     ],
