@@ -52,7 +52,7 @@ const tabs = [
     id: 'fun',
     label: 'Deep Space',
     icon: SparklesIcon,
-    path: '/deepspace',
+    path: '/wildcard',
   },
   {
     id: 'contact',
@@ -250,7 +250,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/projects" element={<Projects />} />
               <Route path="/skills" element={<Skills />} />
-              <Route path="/fun" element={<WildCard />} />
+              <Route path="/wildcard" element={<WildCard />} />
               <Route path="/contact" element={<Contacts />} />
               {/* /asdf → redirects to home */}
               <Route path="*" element={<Navigate to="/" replace />} />
