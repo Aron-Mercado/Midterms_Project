@@ -14,7 +14,13 @@ import {
 
 import './App.css';
 import React, { useEffect, useState } from 'react'
-import {Routes, Route, Link} from 'react-router-dom';
+import { 
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+  Navigate
+} from 'react-router-dom';
 import Home from './Pages/Home'
 import Projects from './Pages/Projects'
 import Skills from './Pages/Skills'
@@ -22,31 +28,37 @@ import WildCard from './Pages/WildCard'
 import Contacts from './Pages/Contacts'
 
 //Tabs Configuration (To be used later)
+// Added Paths for Routes
 const tabs = [
   {
     id: 'home',
     label: 'Home',
     icon: RocketIcon,
+    path: '/',
   },
   {
     id: 'projects',
     label: 'Projects',
     icon: GlobeIcon,
+    path: '/projects',
   },
   {
     id: 'skills',
     label: 'Skills',
     icon: CpuIcon,
+    path: '/skills', 
   },
   {
     id: 'fun',
     label: 'Deep Space',
     icon: SparklesIcon,
+    path: '/deepspace',
   },
   {
     id: 'contact',
     label: 'Contact Info',
     icon: SatelliteIcon,
+    path: '/contact',
   },
 ]
 
@@ -110,41 +122,41 @@ const StarField = () => {
 
 // Main Component
 function App() {
-
-    // State Variables 
-    //Keeps track of which “page” is currently shown
-    //Default value is 'home', so <Home /> shows first
-    const [activeTab, setActiveTab] = useState('home')
-
-    //Updates the currently active tab
-    /*
-      Re-runs the App() function
-      Re-evaluates JSX
-      Updates only the parts that depend on activeTab
-    */
-    const handleTabChange = tabId => {
-    setActiveTab(tabId)
-  }
-
-    //Checks the value of activeTab
-    //Based on that value, it renders a specific component
-    const renderActiveTab = () => {
-    switch (activeTab) {
-      case 'home':
-        return <Home />
-      case 'projects':
-        return <Projects />
-      case 'skills':
-        return <Skills />
-      case 'fun':
-        return <WildCard />
-      case 'contact':
-        return <Contacts />
-      default:
-        return <Home />
+  // Tracking the active tab by deriving it from the URL.
+  const location = useLocation()
+  // navigate() updates the browser history
+  const navigate = useNavigate()
+  // useLocation() gives you /projects, /skills, etc.
+  // You match that path to a tab
+  // The matching tab becomes “active”
+  const activeTab =
+    tabs.find((tab) => tab.path === location.pathname)?.id || 'home'
+  // React Router reacts to the URL change
+  // <Routes> re-renders the correct page
+  const handleTabChange = (tabId) => {
+    const tab = tabs.find((t) => t.id === tabId)
+    if (tab) {
+      navigate(tab.path)
     }
   }
-
+ 
+  /*
+    Click tab
+      ↓
+    navigate(path)
+      ↓
+    Browser URL changes
+      ↓
+    React Router notices the change
+      ↓
+    useLocation() updates
+      ↓
+    App re-renders
+      ↓
+    activeTab is recalculated
+      ↓
+    <Routes> picks the page to render
+    */
 
   return (
     
@@ -157,15 +169,15 @@ function App() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div
-              className="flex-shrink-0 flex items-center gap-2 group cursor-pointer"
+              className="shrink-0 flex items-center gap-2 group cursor-pointer"
               onClick={() => handleTabChange('home')}
             >
-              <div className="w-10 h-10 rounded-full bg-gradient-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center p-[2px] group-hover:glow-border transition-all duration-300">
+              <div className="w-10 h-10 rounded-full bg-linear-to-br from-violet-500 to-fuchsia-500 flex items-center justify-center p-0.5 group-hover:glow-border transition-all duration-300">
                 <div className="w-full h-full bg-slate-950 rounded-full flex items-center justify-center">
                   <RocketIcon className="w-5 h-5 text-violet-400 group-hover:text-fuchsia-400 transition-colors" />
                 </div>
               </div>
-              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-violet-400 to-fuchsia-400 tracking-wider uppercase">
+              <h1 className="text-xl font-bold bg-clip-text text-transparent bg-linear-to-r from-violet-400 to-fuchsia-400 tracking-wider uppercase">
                 Explorer
               </h1>
             </div>
@@ -190,7 +202,7 @@ function App() {
                     {isActive && (
                       <motion.div
                         layoutId="activeTab"
-                        className="absolute inset-0 bg-gradient-to-r from-violet-500/20 to-fuchsia-500/20 rounded-xl border border-violet-500/30"
+                        className="absolute inset-0 bg-linear-to-r from-violet-500/20 to-fuchsia-500/20 rounded-xl border border-violet-500/30"
                         transition={{
                           type: 'spring',
                           stiffness: 380,
@@ -209,9 +221,10 @@ function App() {
 
       {/* Main Content */}
       <main className="pt-20 min-h-[110vh] relative z-10">
+        {/* The URL now drives which tab is shown, and AnimatePresence still handles transitions */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeTab}
+            key={location.pathname}
             initial={{
               opacity: 0,
               scale: 0.98,
@@ -232,7 +245,16 @@ function App() {
               ease: 'easeOut',
             }}
           >
-            {renderActiveTab()}
+            {/* <Routes> replaces the switch/case renderActiveTab function */}
+            <Routes location={location}>
+              <Route path="/" element={<Home />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/fun" element={<WildCard />} />
+              <Route path="/contact" element={<Contacts />} />
+              {/* /asdf → redirects to home */}
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
           </motion.div>
         </AnimatePresence>
       </main>
